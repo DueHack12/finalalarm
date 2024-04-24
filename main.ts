@@ -1,5 +1,6 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 65) {
+        radio.sendString("Alarm Cleared")
         control.reset()
     }
 })
