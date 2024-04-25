@@ -6,6 +6,7 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 input.onButtonPressed(Button.AB, function () {
     radio.sendString("Alarm Cleared")
+    basic.pause(100)
     control.reset()
 })
 let Alarm_Clear = 0
@@ -16,8 +17,8 @@ radio.setFrequencyBand(37)
 basic.pause(1000)
 basic.showString("ARMED")
 basic.forever(function () {
-    while ((input.lightLevel() >= 129 || input.isGesture(Gesture.Shake)) == true) {
-        if (input.lightLevel() >= 129 || input.isGesture(Gesture.Shake)) {
+    while ((input.lightLevel() >= 25 || input.isGesture(Gesture.Shake)) == true) {
+        if (input.lightLevel() >= 25 || input.isGesture(Gesture.Shake)) {
             music.play(music.stringPlayable("C5 C B D C5 C B D ", 120), music.PlaybackMode.LoopingInBackground)
             radio.sendString("ALARM")
             while (Alarm_Clear == 0) {
